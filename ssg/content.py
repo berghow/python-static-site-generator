@@ -32,8 +32,8 @@ class Content(Mapping):
 
 
     @type.setter
-    def type(self, value):
-        self.data["type"] = value
+    def type(self, type):
+        self.data["type"] = type
 
 
     def __getitem__(self, key):
@@ -46,3 +46,11 @@ class Content(Mapping):
 
     def __len__(self):
         return len(self.data)
+
+
+    def __repr__(self):
+        self.data = {}
+        for key,value in data.items():
+            if not key="content":
+                data[key]=value
+        return str(data)
