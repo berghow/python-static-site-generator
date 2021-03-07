@@ -10,9 +10,10 @@ class Content(Mapping):
     __regex = re.compile(__delimiter, re.MULTILINE)
 
 
+    @classmethod
     def load(cls, string):
-        (_,fm,content) = __regex.split(string,2)
-        load(fm, Loader=FullLoader)
+        (_,fm,content) = cls.__regex.split(string,2)
+        metadata = load(fm, Loader=FullLoader)
         return cls(metadata, content)
 
 
@@ -49,8 +50,8 @@ class Content(Mapping):
 
 
     def __repr__(self):
-        self.data = {}
-        for key,value in data.items():
+        data = {}
+        for key,value in self.data.items():
             if key!="content":
                 data[key]=value
         return str(data)
